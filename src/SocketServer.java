@@ -22,8 +22,8 @@ public class SocketServer {
     static OutputStream Os; //出力
     static ServerSocket ss; //サーバソケット
 
-    public double velocity;
-    public double yaw;
+    static double velocity; //速度
+    static double yaw; //ヨー角
     
     //サーバーのメイン
 	public static void main(String arg[]) {
@@ -51,14 +51,14 @@ public class SocketServer {
 	//ファイル読み込み用のメソッド
 	public static void readFile(){
 		try{
-			SocketServer ss = new SocketServer();
+			System.out.println("Reading File..."); //ファイルの読み込みであることを表示
 			FileReader fr = new FileReader("test.dat");
 			StreamTokenizer st = new StreamTokenizer(fr);
 			st.nextToken();
-			ss.velocity = st.nval;
+			velocity = st.nval;
 			st.nextToken();
-			ss.yaw = st.nval;
-			System.out.println("v = " + ss.velocity + "Yaw = " + ss.yaw);
+			yaw = st.nval;
+			System.out.println("v = " + velocity + " Yaw = " + yaw);
 			fr.close();
 		}catch(IOException e){
 			System.out.println("Exception: " + e);
