@@ -37,30 +37,7 @@ public class SocketServer {
 			Os =socket.getOutputStream();
 			dos = new DataOutputStream(Os);
 			System.out.println("Socket Connected!");
-			
-			//ここからファイルを読み込む
-			readFile(); //ファイルを読み込むメソッドを呼び出す
-			//
-			
-			//dos.writeInt(6);;
 		}catch(Exception e) {
-			System.out.println("Exception: " + e);
-		}
-	}
-	
-	//ファイル読み込み用のメソッド
-	public static void readFile(){
-		try{
-			System.out.println("Reading File..."); //ファイルの読み込みであることを表示
-			FileReader fr = new FileReader("test.dat");
-			StreamTokenizer st = new StreamTokenizer(fr);
-			st.nextToken();
-			velocity = st.nval;
-			st.nextToken();
-			yaw = st.nval;
-			System.out.println("v = " + velocity + " Yaw = " + yaw);
-			fr.close();
-		}catch(IOException e){
 			System.out.println("Exception: " + e);
 		}
 	}
